@@ -82,8 +82,13 @@ let totalPopulation = populations.reduce((acc, curr) => acc + curr);
 ////////// PROBLEM 4 //////////
 
 // Do not edit the code below.
-const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulbabunny","CP":135},
-{"monster":"Bulbabunny","CP":250},{"monster":"Ponylopse","CP":277},{"monster":"Ponylopse","CP":184},
+const monstersInYourPocket = [{
+  "monster":"Bulbabunny",
+  "CP":156
+},
+  {"monster":"Bulbabunny","CP":135},
+  {"monster":"Bulbabunny","CP":250},
+{"monster":"Ponylopse","CP":277},{"monster":"Ponylopse","CP":184},
 {"monster":"Pikadoughnet","CP":207},{"monster":"Bulbabunny","CP":139},{"monster":"Pikadoughnet","CP":47},
 {"monster":"Pikadoughnet","CP":175},{"monster":"WaterHorsia","CP":26},{"monster":"Ponylopse","CP":19},
 {"monster":"Pikadoughnet","CP":218},{"monster":"Charaflier","CP":101},{"monster":"WaterHorsia","CP":96},
@@ -101,7 +106,9 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 //Code Here
-let myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+let myStrongest = monstersInYourPocket.filter(function(element) {
+  return element["CP"] > 200;
+})
 
 
 
@@ -118,8 +125,13 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals // Code here
+//first way
+//let orderTotals = orders.filter(element => element["price"] *= 1+element["tax"])
 
+//second way
+let orderTotals = orders.map(function(element) {
+  return element.price * (1+element.tax)
+})
 
 
 ////////// PROBLEM 6 //////////
@@ -138,6 +150,15 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
+// let bobsTotal = purchases.reduce(function(acc, curr) {
+//  // if (curr["owner"] !== "Bob") return;
+//   if(curr.owner ==="Bob") {
+//   return acc += curr.price;
+//   }
+// })
 
+let bobsPurchasers = purchases.filter(element => element.owner === "Bob")
 
+let bobsTotal = bobsPurchasers.reduce((acc, curr) => {
+  return acc + curr.price
+}, 0)

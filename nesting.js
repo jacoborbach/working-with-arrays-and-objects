@@ -55,7 +55,7 @@ function employeeUpdater () {
     if (employees[i].firstName === "Theo") {
       delete employees[i];
     } else if (employees[i].firstName === "Lorie") {
-       employees[i].department === "HR";
+       employees[i].department = "HR";
     }
   }
   return employees;
@@ -184,13 +184,14 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 function looper () {
   for(let i =0; i<numsArr.length; i++) {
     for(let j = 0; j<numsArr[i].length; j++) {
-      if(numsArr[j] % 2 !== 0) {
-        numsArr[j] === 'odd';
-      } else if (numsArr[j] % 2 === 0) {
-        numsArr[j] === 'true';
+      if(numsArr[i][j] % 2 !== 0) {
+        numsArr[i][j] = 'odd';
+      } else if (numsArr[i][j] % 2 === 0) {
+        numsArr[i][j] = 'even';
       }
     }
   }
+  return numsArr
 }
 
 

@@ -43,8 +43,9 @@ function addNums(num1, num2, num3) {
   return num1 + num2 + num3;
 }
 
-let result = addNums ([...numbers]);
+let result = addNums (...numbers);
 
+//how do i seperate by comma right now its taking in an array
 
 ////////// PROBLEM 4 //////////
 

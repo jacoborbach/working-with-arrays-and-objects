@@ -106,11 +106,11 @@ const monstersInYourPocket = [{
 */
 
 //Code Here
-let myStrongest = monstersInYourPocket.filter(function(element) {
+/*let myStrongest = monstersInYourPocket.filter(function(element) {
   return element["CP"] > 200;
-})
+})*/
 
-
+let myStrongest = monstersInYourPocket.filter(element => element["CP"] > 200)
 
 ////////// PROBLEM 5 //////////
 
